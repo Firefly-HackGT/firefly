@@ -6,9 +6,10 @@
   position: -webkit-sticky;
   position: sticky;
   width: 100%;
-  padding: 5px 20px;
+  height: $nav_Hpx;
+  // padding: 5px 20px;
   box-sizing: border-box;
-  background-color: $bg-hf;
+  background-color: $bg-dark;
   border-bottom: 1px solid rgb(51, 51, 51);
   box-shadow: 0 5px 15px 5px rgba(0, 0, 0, 0.192);
 }

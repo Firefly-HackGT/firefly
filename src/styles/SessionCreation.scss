@@ -1,0 +1,39 @@
+@use './partials/theme' as *;
+@use './partials/constructions' as *;
+
+.section-creation_wrapper {
+  @include flex-center;
+}
+
+.sections-input {
+  @include flex-center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  width: 50%;
+  height: calc(100vh - $nav_Hpx);
+}
+
+input[type=text] {
+  display: block;
+  background-color: rgb(202, 202, 202);
+  border: none;
+  border-radius: 7px;
+  width: 40%;
+  height: 50px;
+  font-size: large;
+  outline: none;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.sections-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100%;
+  width: 50%;
+  background-color: $bright;
+  overflow-y: auto;
+  height: calc(100vh - $nav_Hpx);
+}

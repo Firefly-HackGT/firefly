@@ -1,0 +1,37 @@
+@use './partials/constructions' as *;
+@use './partials/theme' as *;
+
+
+.add-session_btn {
+  @include default-button;
+  display: inline-flex;
+  height: 50px;
+  color: $i1;
+  padding: 0;
+  overflow: hidden;
+  transition: 0.2s;
+  margin: 20px;
+  background-color: $bright;
+
+  
+  &:hover {
+    background-color: $dark;
+  }
+}
+
+.add-session_text, .add-session_icon {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.add-session_text {
+  width: 70%;
+  font-size: 15px;
+}
+
+.add-session_icon {
+  background-color: $dark;
+}

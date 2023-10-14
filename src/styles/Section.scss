@@ -1,0 +1,36 @@
+@use './partials/theme' as *;
+
+
+.section-box {
+  position: relative;
+  margin: 10px;
+  width: 300px;
+  height: 150px;
+  background-color: $i1;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  animation: popup 1s;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.359);
+}
+
+.section_info {
+  margin: 3px;
+  text-align: left;
+  font-size: 16px;
+  color: white;
+}
+
+.section_title {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  color: $bright;
+}
+
+.section_index {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  color: black;
+}

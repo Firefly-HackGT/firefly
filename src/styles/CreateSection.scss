@@ -1,0 +1,26 @@
+@use './partials/constructions' as *;
+@use './partials/theme' as *;
+
+
+.add-section_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.add-section_box {
+  max-width: 45vw;
+  padding: 10px;
+  background-color: var(--height4);
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  animation: popup 0.25s ease-out;
+}

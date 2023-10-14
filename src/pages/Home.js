@@ -1,7 +1,10 @@
 import '../styles/Home.scss';
 import RoleButton from '../components/RoleButton';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
+
+
     return (
         <div className="home_wrapper">
             <div className="welcome">
@@ -12,7 +15,9 @@ export default function Home() {
                     <span class="pick_role--text">
                         You are a...
                     </span>
-                    <RoleButton role="Lecturer" />
+                    <Link to='/createSession' style={{ textDecoration: 'none' }}>
+                        <RoleButton role="Lecturer" />
+                    </Link>
                     <RoleButton role="Student" />
                 </div>
             </div>
