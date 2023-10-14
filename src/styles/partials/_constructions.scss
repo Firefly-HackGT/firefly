@@ -1,0 +1,23 @@
+@mixin flex-center($gap-row: 0, $gap-col: 0) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $gap-row $gap-col;
+}
+
+@mixin large-header($color: black, $size: 50px) {
+    color: $color;
+    font-size: $size;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont;
+}
+
+@mixin default-button($br: 5px) {
+    cursor: pointer;
+    display: block;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: $br;
+}

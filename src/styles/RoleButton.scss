@@ -1,0 +1,24 @@
+@use './partials/theme' as *;
+@use './partials/constructions' as *;
+
+
+.role_button {
+  @include default-button(10px);
+  margin: 20px auto;
+  padding: 10px 20px;
+  width: 30%;
+  font-size: 30px;
+  box-sizing: content-box;
+  background-color: $bright;
+  color: $i1;
+  border: solid $i1 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition : 0.2s;
+
+  &:hover {
+    background-color: $i1;
+    color: $bright;
+    border: solid 2px $bright;
+  }
+}

@@ -1,0 +1,31 @@
+@use './partials/constructions' as *;
+@use './partials/theme' as *;
+
+.home_wrapper {
+  min-height: 100%;
+  @include flex-center;
+}
+
+.welcome {
+  @include flex-center;
+  @include large-header(white);
+  min-height: 100%;
+  width: 50%;
+  background-color: $bright;
+}
+
+.login_container {
+  min-height: 100%;
+  width: 50%;
+  @include flex-center;
+}
+
+.login_box {
+  width: 100%;
+}
+
+.pick_role--text {
+  @include large-header($bright);
+  display: block;
+  margin-bottom: 50px;
+}
