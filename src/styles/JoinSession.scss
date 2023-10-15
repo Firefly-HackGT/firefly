@@ -1,0 +1,23 @@
+@use './partials/theme' as *;
+@use './partials/constructions' as *;
+@import './HostSession.scss';
+
+#rating {
+  font-size: 70px;
+  color: gray;
+
+  & ion-icon {
+    margin: auto 2px;
+    font-size: 64px;
+    transition: 0.2s;
+    
+    &:hover {
+      cursor: pointer;
+      color: $bright;
+    }
+  }
+
+  .selected {
+    color: $bright;
+  }
+}

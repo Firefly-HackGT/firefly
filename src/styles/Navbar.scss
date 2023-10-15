@@ -43,3 +43,14 @@
 .nav__right {
   @include flex-center(0, 30px);
 }
+
+.nav__sesh-id {
+  color: $bright;
+  font-weight: bold;
+  font-size: larger;
+
+  & > span {
+    color: $i1;
+    font-weight: normal;
+  }
+}

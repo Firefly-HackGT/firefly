@@ -1,15 +1,24 @@
 import '../styles/SessionCreation.scss';
 import Section from '../components/Section';
 import AddSessionBtn from '../components/AddSessionBtn';
+import DoneSectionBtn from '../components/DoneSectionBtn';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function SessionCreation() {
+export default function SessionCreation(props) {
   const [title, setTitle] = useState('');
   const [description, setDesc] = useState('');
   const [sections, setSections] = useState([]);
 
   const addSection = () => {
-    setSections([...sections, {key: sections.length + 1, title: title, desc: description}]);
+    if (title.length === 0 || description.length === 0) return;
+    setSections([...sections, {key: sections.length + 1, name: title, description: description}]);
+  }
+
+  const navigate = useNavigate();
+  const submitSections = () => {
+    if (sections.length === 0) return;
+    navigate('/hostSession', { state: {sections: sections}} );
   }
 
   return (
@@ -20,10 +29,11 @@ export default function SessionCreation() {
         <label htmlFor="desc">Section Description</label>
         <input id="desc" type="text" placeholder="Learn about y=mx + b" onInput={e => setDesc(e.target.value)} />
         <AddSessionBtn click={addSection} />
+        <span onClick={() => submitSections()} ><DoneSectionBtn /></span>
       </div>
       <div className="sections-list">
         {sections.map(sec => (
-          <Section key={sec.key} index={sec.key} title={sec.title} desc={sec.desc} />
+          <Section key={sec.key} index={sec.key} title={sec.name} desc={sec.description} />
         ))}
       </div>
     </div>

@@ -1,0 +1,35 @@
+@use './partials/theme' as *;
+@use './partials/constructions' as *;
+
+.done-session_btn {
+  @include default-button;
+  display: inline-flex;
+  height: 50px;
+  color: $i1;
+  padding: 0;
+  overflow: hidden;
+  transition: 0.2s;
+  margin: 20px;
+  background-color: none;
+  color: $bright;
+  border: solid 2px $bright;
+  
+  &:hover {
+    background-color: $bright;
+    color: white;
+  }
+}
+
+.done-session_text, .done-session_icon {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.done-session_text {
+  width: 70%;
+  font-size: 18px;
+  padding-right: 0;
+}
