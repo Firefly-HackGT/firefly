@@ -9,6 +9,8 @@ export default function ProfSessionResults(props) {
   const { sections, p_name } = state;
   const navigate = useNavigate();
 
+  props.setSID('');
+
   let htmlSections = [];
   let avgRating = 0;
   for (let i = 0; i < sections.length; i++) {

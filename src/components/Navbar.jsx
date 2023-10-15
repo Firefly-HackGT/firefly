@@ -21,6 +21,7 @@ export default function Navbar(props) {
           </div>
           <div className="nav__right">
             {!props.sID ? '' : <span className="nav__sesh-id"><span>Session ID:</span> {props.sID}</span>}
+            {!props.sName ? '' : <span className="nav__sesh-id"><span>User:</span> {props.sName}</span>}
           </div>
         </nav>
       </header>

@@ -4,10 +4,12 @@ import Section from '../components/Section';
 import DoneSectionBtn from '../components/DoneSectionBtn';
 
 
-export default function StuSessionResults() {
+export default function StuSessionResults(props) {
   const { state } = useLocation();
   const { sections, s_name } = state;
   const navigate = useNavigate();
+
+  props.setSID('');
 
   let htmlSections = [];
   let avgRating = 0;

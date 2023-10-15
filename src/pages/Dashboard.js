@@ -6,9 +6,11 @@ import DashLecture from '../components/DashLecture';
 
 let wb;
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const { state } = useLocation();
   const [lectures, setLectures] = useState([]);
+
+  props.setSName(state.name)
 
   useEffect(() => {
     wb = new WebSocket(process.env.REACT_APP_BACKEND_URL);

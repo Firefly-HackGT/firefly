@@ -12,19 +12,20 @@ import { useState } from 'react';
 
 function App() {
   const [sID, setSID] = useState('');
+  const [sName, setSName] = useState('');
 
   return (
     <div id="App">
       <BrowserRouter>
         <Routes>
           <Route index element={<Home setSID={setSID} />} />
-          <Route element={<Navbar sID={sID} />} >
+          <Route element={<Navbar sID={sID} sName={sName} />} >
             <Route path='/createSession' element={<SessionCreation />} />
             <Route path='/hostSession' element={<HostSession setSID={setSID} />} />
             <Route path='/joinSession' element={<JoinSession setSID={setSID} />} />
-            <Route path='/profSessionResults' element={<ProfSessionResults />} />
-            <Route path='/stuSessionResults' element={<StuSessionResults />} />
-            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/profSessionResults' element={<ProfSessionResults setSID={setSID} />} />
+            <Route path='/stuSessionResults' element={<StuSessionResults setSID={setSID} />} />
+            <Route path='/dashboard' element={<Dashboard setSName={setSName} />} />
           </Route>
         </Routes>
       </BrowserRouter>
