@@ -33,7 +33,7 @@ export default function Dashboard() {
   }, []);
 
   let lList = [];
-  for (let i = 0; i < lectures.length; i++) {
+  for (let i = lectures.length - 1; i >= 0; i--) {
     lList.push(<DashLecture key={i} lecture={lectures[i]} />);
   }
 
