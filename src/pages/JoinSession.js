@@ -35,7 +35,7 @@ export default function JoinSession(props) {
       console.log(res)
       if (res.type === 'next_section') {
         setNumSections(res['length']);
-        setSelStars(0);
+        setSelStars(res.rating);
         setCurrS({
           curr: res.curr,
           name: res.section_name,
