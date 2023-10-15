@@ -1,6 +1,6 @@
 import '../styles/HostSession.scss';
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 let wb;
 
@@ -10,6 +10,9 @@ export default function HostSession(props) {
   const [currS, setCurrS] = useState(0);
   const [rating, setRating] = useState(0.0);
   const [numStudents, setNumStudents] = useState(0);
+  const navigate = useNavigate();
+
+  console.log(state)
 
   useEffect(() => {
     wb = new WebSocket(process.env.REACT_APP_BACKEND_URL);
@@ -18,7 +21,7 @@ export default function HostSession(props) {
       console.log('opened websocket')
       const event = {
         type: 'init_lecture',
-        sections: sections
+        sections: state
       }
       wb.send(JSON.stringify(event));
     }
@@ -30,16 +33,26 @@ export default function HostSession(props) {
         setRating(res.overall_rating);
         setNumStudents(res.num_students);
       }
+      else if (res.type === 'final_results') {
+        console.log(res)
+        navigate('/profSessionResults', { state: {sections: res.sections}});
+        wb.close(1000);
+      }
     }
   }, []);
 
   const nextSesh = () => {
-    console.log('next')
-    if (!wb || currS + 1 === sections.length) {
-      return;
-    }
-    setCurrS(currS + 1);
+    // console.log('next')
+    if (!wb) return;
+    if (currS + 1 < sections.length) setCurrS(currS + 1);
     wb.send(JSON.stringify({type: 'next'}));
+  }
+  const prevSesh = () => {
+    // console.log('next')
+    if (!wb) return;
+    if (currS - 1 < 0) return;
+    setCurrS(currS - 1);
+    wb.send(JSON.stringify({type: 'back'}));
   }
 
   return (
@@ -48,6 +61,9 @@ export default function HostSession(props) {
         <div id="progressbar"><div style={{width: `${(currS + 1) / sections.length * 100}%`}}><span>{currS + 1}</span></div></div>
         <span className="section-name">{sections[currS].name}</span>
         <span className="section-desc">{sections[currS].description}</span>
+        <button id="prev-section-btn" onClick={() => prevSesh()}>
+          <ion-icon name="chevron-back-circle-outline" />
+        </button>
       </div>
       <div className="section-rating">
         <div className="student-info">

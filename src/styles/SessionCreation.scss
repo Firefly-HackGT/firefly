@@ -3,6 +3,7 @@
 
 .section-creation_wrapper {
   @include flex-center;
+  position: relative;
 }
 
 .sections-input {
@@ -31,9 +32,17 @@ input[type=text] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   min-height: 100%;
   width: 50%;
   background-color: $bright;
   overflow-y: auto;
   height: calc(100vh - $nav_Hpx);
+}
+
+#section-creation_title {
+  @include large-header($bright, 40px);
+  position: absolute;
+  top: 10px;
+  margin: auto;
 }

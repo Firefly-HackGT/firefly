@@ -2,6 +2,7 @@ import '../styles/JoinSession.scss';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 let wb;
 
@@ -15,6 +16,7 @@ export default function JoinSession(props) {
   });
   const [num_sections, setNumSections] = useState(1);
   const [selStars, setSelStars] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     wb = new WebSocket(process.env.REACT_APP_BACKEND_URL);
@@ -41,6 +43,10 @@ export default function JoinSession(props) {
           desc: res.description,
           lecture: res.lecture_name
         });
+      }
+      else if (res.type === 'final_results') {
+        navigate('/stuSessionResults', { state: {sections: res.sections}});
+        wb.close(1000);
       }
     }
   }, []);

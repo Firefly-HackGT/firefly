@@ -12,6 +12,10 @@
   min-height: 100%;
   width: 50%;
   background-color: $bright;
+  
+  & > span {
+    z-index: 2;
+  }
 }
 
 .login_container {
@@ -28,4 +32,13 @@
   @include large-header($bright);
   display: block;
   margin-bottom: 50px;
+}
+
+#sw-js-blob-svg {
+  position: absolute;
+  // top: -100px;
+  left: -100px;
+  height: 500px;
+  width: 500px;
+  z-index: 1;
 }

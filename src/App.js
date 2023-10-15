@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import SessionCreation from './pages/SessionCreation';
 import HostSession from './pages/HostSession';
 import JoinSession from './pages/JoinSession';
+import ProfSessionResults from './pages/ProfSessionResults';
+import StuSessionResults from './pages/StuSessionResults';
 import { useState } from 'react';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
             <Route path='/createSession' element={<SessionCreation />} />
             <Route path='/hostSession' element={<HostSession setSID={setSID} />} />
             <Route path='/joinSession' element={<JoinSession setSID={setSID} />} />
+            <Route path='/profSessionResults' element={<ProfSessionResults />} />
+            <Route path='/stuSessionResults' element={<StuSessionResults />} />
           </Route>
         </Routes>
       </BrowserRouter>

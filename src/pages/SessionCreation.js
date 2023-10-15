@@ -3,12 +3,13 @@ import Section from '../components/Section';
 import AddSessionBtn from '../components/AddSessionBtn';
 import DoneSectionBtn from '../components/DoneSectionBtn';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function SessionCreation(props) {
   const [title, setTitle] = useState('');
   const [description, setDesc] = useState('');
   const [sections, setSections] = useState([]);
+  const { state } = useLocation();
 
   const addSection = () => {
     if (title.length === 0 || description.length === 0) return;
@@ -18,12 +19,15 @@ export default function SessionCreation(props) {
   const navigate = useNavigate();
   const submitSections = () => {
     if (sections.length === 0) return;
-    navigate('/hostSession', { state: {sections: sections}} );
+    navigate('/hostSession', { state: {sections: sections, prof_name: state.p_name, lecture_name: state.lName}} );
   }
 
   return (
     <div className="section-creation_wrapper">
       <div className="sections-input">
+        <p id="section-creation_title">
+          Add Sections
+        </p>
         <label htmlFor="title">Section Name</label>
         <input id="title" type="text" placeholder="Linear equations" onInput={e => setTitle(e.target.value)} />
         <label htmlFor="desc">Section Description</label>

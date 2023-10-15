@@ -48,9 +48,19 @@
   color: $bright;
   font-weight: bold;
   font-size: larger;
+  user-select: text;
 
   & > span {
     color: $i1;
     font-weight: normal;
+  }
+}
+
+#nav_logo {
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
   }
 }

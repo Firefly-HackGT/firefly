@@ -1,0 +1,25 @@
+@use './partials/theme' as *;
+@use './partials/constructions' as *;
+@import './CreateSection.scss';
+
+
+.sections-input > p {
+  margin: 0;
+  color: $bright;
+  font-weight: bold;
+  font-size: large;
+}
+
+#rating-prof {
+  font-size: 70px;
+  color: gray;
+
+  & ion-icon {
+    margin: auto 2px;
+    font-size: 64px;
+  }
+
+  .selected {
+    color: $bright;
+  }
+}
