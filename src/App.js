@@ -7,6 +7,7 @@ import HostSession from './pages/HostSession';
 import JoinSession from './pages/JoinSession';
 import ProfSessionResults from './pages/ProfSessionResults';
 import StuSessionResults from './pages/StuSessionResults';
+import Dashboard from './pages/Dashboard';
 import { useState } from 'react';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/joinSession' element={<JoinSession setSID={setSID} />} />
             <Route path='/profSessionResults' element={<ProfSessionResults />} />
             <Route path='/stuSessionResults' element={<StuSessionResults />} />
+            <Route path='/dashboard' element={<Dashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>

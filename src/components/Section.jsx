@@ -2,6 +2,7 @@ import '../styles/Section.scss';
 
 export default function Section(props) {
   const ratingColor = props.rating && props.rating < 3 ? {color: 'red', fontWeight: 'bolder'} : {};
+  // console.log(props.rating)
 
   return (
     <div className="section-box" >

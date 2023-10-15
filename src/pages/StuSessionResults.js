@@ -1,10 +1,13 @@
 import '../styles/StuSessionResults.scss';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Section from '../components/Section';
+import DoneSectionBtn from '../components/DoneSectionBtn';
+
 
 export default function StuSessionResults() {
   const { state } = useLocation();
-  const { sections } = state;
+  const { sections, s_name } = state;
+  const navigate = useNavigate();
 
   let htmlSections = [];
   let avgRating = 0;
@@ -26,6 +29,9 @@ export default function StuSessionResults() {
             <span id="s_5" className={5 <= avgRating ? "selected" : ''}><ion-icon name="star" /></span>
           </span>
         <span id="avg-rating">{avgRating.toFixed(1)}</span>
+        <span onClick={() => navigate('/dashboard', { state: {type: 'Student', name: s_name } })}>
+          <DoneSectionBtn name="Dashboard" icon="ribbon-outline" />
+        </span>
       </div>
       <div className="sections-list">
         {htmlSections}

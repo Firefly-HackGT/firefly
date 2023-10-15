@@ -1,8 +1,7 @@
 import '../styles/JoinSession.scss';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 let wb;
 
@@ -45,7 +44,7 @@ export default function JoinSession(props) {
         });
       }
       else if (res.type === 'final_results') {
-        navigate('/stuSessionResults', { state: {sections: res.sections}});
+        navigate('/stuSessionResults', { state: {sections: res.sections, s_name: name}});
         wb.close(1000);
       }
     }

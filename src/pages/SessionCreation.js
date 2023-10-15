@@ -19,7 +19,7 @@ export default function SessionCreation(props) {
   const navigate = useNavigate();
   const submitSections = () => {
     if (sections.length === 0) return;
-    navigate('/hostSession', { state: {sections: sections, prof_name: state.p_name, lecture_name: state.lName}} );
+    navigate('/hostSession', { state: {sections: sections, prof_name: state.p_name, lecture_name: state.lName} });
   }
 
   return (

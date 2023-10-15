@@ -12,8 +12,6 @@ export default function HostSession(props) {
   const [numStudents, setNumStudents] = useState(0);
   const navigate = useNavigate();
 
-  console.log(state)
-
   useEffect(() => {
     wb = new WebSocket(process.env.REACT_APP_BACKEND_URL);
 
@@ -21,7 +19,9 @@ export default function HostSession(props) {
       console.log('opened websocket')
       const event = {
         type: 'init_lecture',
-        sections: state
+        sections: sections,
+        lecture_name: state.lecture_name,
+        prof_name: state.prof_name
       }
       wb.send(JSON.stringify(event));
     }
@@ -34,8 +34,8 @@ export default function HostSession(props) {
         setNumStudents(res.num_students);
       }
       else if (res.type === 'final_results') {
-        console.log(res)
-        navigate('/profSessionResults', { state: {sections: res.sections}});
+        // console.log(res)
+        navigate('/profSessionResults', { state: {sections: res.sections, p_name: state.prof_name} });
         wb.close(1000);
       }
     }
